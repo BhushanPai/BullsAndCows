@@ -19,15 +19,19 @@ public class NumberGeneratorPlayer {
 	public int getCows(int guess)
 	{
 		int cows=0;
+		int guessCounter=0;
 		while(guess>0)
 		{
 			int guessDigit=guess%10;
 			int tempNumber=generatedNumber;
+			guessCounter++;
+			int generatedNumberCounter=0;
 			while(tempNumber>0)
 			{
 				int tempDigit=tempNumber%10;
 				tempNumber/=10;
-				if(tempDigit==guessDigit)
+				generatedNumberCounter++;
+				if(tempDigit==guessDigit && guessCounter!=generatedNumberCounter)
 				{
 					cows++;
 				}
@@ -56,7 +60,7 @@ public class NumberGeneratorPlayer {
 		
 		return bulls;
 	}
-
+	
 	public int getGeneratedNumber() {
 		return generatedNumber;
 	}
