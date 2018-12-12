@@ -20,7 +20,7 @@ public class NumberGeneratorPlayer {
 	{
 		int cows=0;
 		int guessCounter=0;
-		while(guess>0)
+		while(guessCounter<3)
 		{
 			int guessDigit=guess%10;
 			int tempNumber=generatedNumber;
