@@ -16,4 +16,15 @@ public class RandomNumberUtils {
 		}
 		return digitSet.size()==length;
 	}
+	public static int getDigitCount(int number)
+	{
+		int counter=0;
+		while(number>0)
+		{
+			counter++;
+			number/=10;
+		}
+		return counter;
+	}
+	
 }
