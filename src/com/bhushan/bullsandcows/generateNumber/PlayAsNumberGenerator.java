@@ -1,8 +1,7 @@
 package com.bhushan.bullsAndCows.generateNumber;
 
-import java.util.Scanner;
-
 import com.bhushan.bullsAndCows.utils.RandomNumberUtils;
+import com.bhushan.bullsAndCows.utils.ScannerDependencyInjection;
 
 public class PlayAsNumberGenerator {
 	
@@ -12,14 +11,13 @@ public class PlayAsNumberGenerator {
 		
 		int bulls=0;
 		int cows=0;
-		Scanner sc=new Scanner(System.in);
 		System.out.println("I have thought of a number...Let's see how many tries you take to guess !! \n");
 		while(bulls !=3)
 		{
 			System.out.println("Enter your guess \n");
 					
 			int length;
-			int guess=sc.nextInt();
+			int guess=ScannerDependencyInjection.getInstance().nextInt();
 			length=RandomNumberUtils.getDigitCount(guess);
 			while(!RandomNumberUtils.checkIfDigitsAreUnique(guess) || length !=3)
 			{
@@ -34,7 +32,7 @@ public class PlayAsNumberGenerator {
 							+ "Enter your guess");
 				}
 				
-				guess=sc.nextInt();
+				guess=ScannerDependencyInjection.getInstance().nextInt();
 				length=RandomNumberUtils.getDigitCount(guess);
 			}
 			cows=player.getCows(guess);
