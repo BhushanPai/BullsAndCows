@@ -18,20 +18,30 @@ public class PlayAsNumberGenerator {
 		{
 			System.out.println("Enter your guess \n");
 					
-			
+			int length;
 			int guess=sc.nextInt();
-			while(!RandomNumberUtils.checkIfDigitsAreUnique(guess))
+			length=RandomNumberUtils.getDigitCount(guess);
+			while(!RandomNumberUtils.checkIfDigitsAreUnique(guess) || length !=3)
 			{
-				System.out.println("Please Enter a number with unique digits! \n"
-						+ "Enter your guess");
+				if(length!=3)
+				{
+					System.out.println("Please Enter a number with exactly 3 digits! \n"
+							+ "Enter your guess");
+				}
+				else
+				{
+					System.out.println("Please Enter a number with unique digits! \n"
+							+ "Enter your guess");
+				}
 				
 				guess=sc.nextInt();
+				length=RandomNumberUtils.getDigitCount(guess);
 			}
 			cows=player.getCows(guess);
 			bulls=player.getBulls(guess);
 			
-			System.out.println("You Got "+ bulls + " Bulls and " + cows + " Cows !!\n"
-					+ "Against ->"+ player.getGeneratedNumber()+"\n");
+			System.out.println("You Got "+ bulls + " Bulls and " + cows + " Cows !!\n");
+//					+ "Against ->"+ player.getGeneratedNumber()+"\n");
 			
 		}
 		
